@@ -164,7 +164,9 @@ const resumeGame = () => {
 }
 
 const gameInterval = () => {
-    let fruitId = "f-" + crypto.randomUUID()
+    // let fruitId = "f-" + crypto.randomUUID() // crypto.randomUUID() is not support on mobile browser
+    let fruitId = "f-" + randomString()
+    
     // console.log("fruitId : ", fruitId)
 
     initAFruit(fruitId)
@@ -343,3 +345,5 @@ const effectSound = (audioElementId) => {
 
 // common functions
 const getRandomInt = (max) => Math.floor(Math.random() * max)
+
+const randomString = () => (Math.random() + 1).toString(36).substring(7)
