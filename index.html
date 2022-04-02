@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./index.js"> </script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <audio id="press-button-audio" src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-still-north-media/weapon_gun_1911_A_18.mp3"></audio>
+        <audio id="jump-audio" src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-epic-stock-media/esm_5_wickets_sound_fx_arcade_casino_kids_mobile_app.mp3"></audio>
+        <audio id="game-over-audio" src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-epic-stock-media/esm_8_bit_game_over_1_arcade_80s_simple_alert_notification_game.mp3"></audio>
+        
+        <div id="control-panel" class="">
+            <input id="startBtn" type="button" onclick="startGame()" value="Start">
+            <input id="pauseBtn" type="button" onclick="pauseGame()" value="Pause" style="display: none;">
+            <div style="float:right">
+                My Point: <span id="my-point" style="color:red;">0</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div id="main" class="game-area" onclick="onClick()"></div>
+
+        <hr/>
+        <p>
+            Just mouse click or hit space bar
+        </p>
+    </body>
+</html>
