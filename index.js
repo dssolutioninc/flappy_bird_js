@@ -193,7 +193,7 @@ const initAFruit = (fruitId) => {
 
 const initRandomPosition = (element) => {
     let top = getRandomInt(GAME_HEIGHT)
-    element.style.top = "".concat(top + OFFSET_TOP, "px")
+    element.style.top = "".concat(top + OFFSET_TOP - 10, "px")
     element.style.left = "".concat(0 + OFFSET_LEFT, "px")
 }
 
