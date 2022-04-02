@@ -13,7 +13,7 @@ const fruitBucket = new Map();
 // height and width of game area
 var GAME_HEIGHT, GAME_WIDTH, OFFSET_TOP, OFFSET_LEFT
 
-var myPoint = 0
+var score = 0
 
 const PLAYER_ID = 'me'
 var playerInfo = {}
@@ -77,10 +77,10 @@ const setPlayer = () => {
 }
 
 const startGame = () => {
-    // reset my point
-    myPoint = 0
-    let pointElmt = document.getElementById('my-point')
-    pointElmt.innerHTML = myPoint
+    // reset score
+    score = 0
+    let scoreElmt = document.getElementById('score')
+    scoreElmt.innerHTML = score
 
     gameIntervalId = setInterval(gameInterval, FRUIT_ADDING_INTERVAL)
 
@@ -230,8 +230,8 @@ const moveFruit = (fruitId) => {
 
     fruitElement.style.left = "".concat(left + FRUIT_MOVING_SPEED, "px")
 
-    // check position to get point
-    validatePoint(left)
+    // check position to get score
+    scoring(left)
 }
 
 const hitPlayer = (fruitId) => {
@@ -253,17 +253,17 @@ const hitPlayer = (fruitId) => {
     return false
 }
 
-const validatePoint = (postX) => {
+const scoring = (postX) => {
     if (
         postX < playerPosX &&
         (postX + FRUIT_MOVING_SPEED)  > playerPosX
     ) {
-        // got point
-        myPoint += 1
-        console.log("myPoint: ", myPoint)
+        // got score
+        score += 1
+        console.log("score: ", score)
 
-        let pointElmt = document.getElementById('my-point')
-        pointElmt.innerHTML = myPoint
+        let scoreElmt = document.getElementById('score')
+        scoreElmt.innerHTML = score
     }
 }
 
