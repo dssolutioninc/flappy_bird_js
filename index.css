@@ -16,3 +16,21 @@
     height: 70px;
     width: 15px;
 }
+
+.control-button{
+    font-size: 1em;
+    color: blue;
+}
+
+.start-instruction {
+    display:inline;
+    color: red;
+    margin-left: 20px;
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }

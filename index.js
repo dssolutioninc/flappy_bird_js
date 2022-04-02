@@ -93,6 +93,10 @@ const startGame = () => {
     pauseBtn.setAttribute("onclick", "pauseGame()");
     pauseBtn.style.display = "inline"
 
+    // hide start instruction
+    let instruction = document.getElementById('start-instruction')
+    instruction.style.display = "none"
+
     // effect sound
     effectSound('press-button-audio')
 }
