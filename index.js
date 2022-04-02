@@ -289,7 +289,7 @@ function onClick(e) {
 }
 
 function playerJumpUp() {
-    console.log("up interval")
+    // console.log("up interval")
 
     if (playerInfo.upSpeed <= 0) {
         if (playerInfo.intervalId) {
@@ -317,7 +317,7 @@ function playerJumpUp() {
 const PLAYER_FALL_INTERVAL = 100
 
 function playerFallDown() {
-    console.log("down interval")
+    // console.log("down interval")
 
     let player = document.getElementById(PLAYER_ID)
     let playerRect = player.getBoundingClientRect()
