@@ -38,13 +38,15 @@ const initGame = () => {
     // init game size
     GAME_HEIGHT = 500
     let bodyRect = document.body.getBoundingClientRect()
+    console.log("bodyRect: ", bodyRect)
     GAME_WIDTH = bodyRect.width
 
     main = document.getElementById('main')
-    let rect = main.getBoundingClientRect()
+    let mainRect = main.getBoundingClientRect()
+    console.log("mainRect: ", mainRect)
 
-    OFFSET_TOP = rect.top
-    OFFSET_LEFT = rect.left
+    OFFSET_TOP = mainRect.top
+    OFFSET_LEFT = mainRect.left
 
     // set game box size
     main.style.height = "".concat(GAME_HEIGHT, "px")
