@@ -76,6 +76,12 @@ const setPlayer = () => {
     playerPosX = GAME_WIDTH / 2 + 10
 }
 
+const onStartGame = () => {
+    startGame()
+
+    // effect sound
+    effectSound('press-button-audio')
+}
 const startGame = () => {
     // reset score
     score = 0
@@ -87,22 +93,25 @@ const startGame = () => {
     // change button start -> stop
     let startBtn = document.getElementById('startBtn')
     startBtn.setAttribute("value", "Stop")
-    startBtn.setAttribute("onclick", "stopGame()")
+    startBtn.setAttribute("onclick", "onStopGame()")
 
     // init and show pause button
     let pauseBtn = document.getElementById('pauseBtn')
     pauseBtn.setAttribute("value", "Pause");
-    pauseBtn.setAttribute("onclick", "pauseGame()");
+    pauseBtn.setAttribute("onclick", "onPauseGame()");
     pauseBtn.style.display = "inline"
 
     // hide start instruction
     let instruction = document.getElementById('start-instruction')
     instruction.style.display = "none"
+}
+
+const onStopGame = () => {
+    stopGame()
 
     // effect sound
     effectSound('press-button-audio')
 }
-
 const stopGame = () => {
     fruitBucket.forEach((fruitInfo, fruitId) => {
         clearInterval(fruitInfo.intervalId)
@@ -117,16 +126,19 @@ const stopGame = () => {
     // change button stop -> start
     let startBtn = document.getElementById('startBtn')
     startBtn.setAttribute("value", "Start");
-    startBtn.setAttribute("onclick", "startGame()");
+    startBtn.setAttribute("onclick", "onStartGame()");
 
     // hide pause button
     let pauseBtn = document.getElementById('pauseBtn')
     pauseBtn.style.display = "none"
+}
+
+const onPauseGame = () => {
+    pauseGame()
 
     // effect sound
     effectSound('press-button-audio')
 }
-
 const pauseGame = () => {
     fruitBucket.forEach((fruitInfo, fruitId) => {
         clearInterval(fruitInfo.intervalId)
@@ -137,12 +149,15 @@ const pauseGame = () => {
     // change button Pause -> Resume
     let pauseBtn = document.getElementById('pauseBtn')
     pauseBtn.setAttribute("value", "Resume");
-    pauseBtn.setAttribute("onclick", "resumeGame()");
+    pauseBtn.setAttribute("onclick", "onResumeGame()");
+}
+
+const onResumeGame = () => {
+    resumeGame()
 
     // effect sound
     effectSound('press-button-audio')
 }
-
 const resumeGame = () => {
     fruitBucket.forEach((fruitInfo, fruitId) => {
         // TODO
@@ -157,10 +172,7 @@ const resumeGame = () => {
     // change button Resume -> Pause
     let pauseBtn = document.getElementById('pauseBtn')
     pauseBtn.setAttribute("value", "Pause");
-    pauseBtn.setAttribute("onclick", "pauseGame()");
-
-    // effect sound
-    effectSound('press-button-audio')
+    pauseBtn.setAttribute("onclick", "onPauseGame()");
 }
 
 const gameInterval = () => {

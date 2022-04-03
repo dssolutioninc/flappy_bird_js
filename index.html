@@ -7,11 +7,11 @@
     <body>
         <audio id="press-button-audio" src="./sounds/button_click.mp3"></audio>
         <audio id="jump-audio" src="./sounds/jump.mp3"></audio>
-        <audio id="game-over-audio" src="./sounds/mario_game_over_128.mp3"></audio>
+        <audio id="game-over-audio" src="./sounds/mario_game_over_48.mp3"></audio>
         
         <div id="control-panel" class="">
-            <input id="startBtn" type="button" class="control-button" onclick="startGame()" value="Start"><div id="start-instruction" class="start-instruction"> ← Click to start</div>
-            <input id="pauseBtn" type="button" class="control-button" onclick="pauseGame()" value="Pause" style="display:none; margin-left:20px;">
+            <input id="startBtn" type="button" class="control-button" onclick="onStartGame()" value="Start"><div id="start-instruction" class="start-instruction"> ← Click to start</div>
+            <input id="pauseBtn" type="button" class="control-button" onclick="onPauseGame()" value="Pause" style="display:none; margin-left:20px;">
             <div style="float:right; color:blue;">
                 Score: <span id="score" style="color:red;">0</span>
             </div>
