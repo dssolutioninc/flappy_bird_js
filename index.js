@@ -243,7 +243,18 @@ const moveFruit = (fruitId) => {
     fruitElement.style.left = "".concat(left + FRUIT_MOVING_SPEED, "px")
 
     // check position to get score
-    scoring(left)
+    if (!fruitInfo.scored && left > playerPosX) {
+        // got score
+        score += 1
+        console.log("score: ", score)
+
+        let scoreElmt = document.getElementById('score')
+        scoreElmt.innerHTML = score
+
+        // set scored status
+        fruitInfo.scored = true
+        fruitBucket.set(fruitId, fruitInfo)
+    }
 }
 
 const hitPlayer = (fruitId) => {
@@ -263,20 +274,6 @@ const hitPlayer = (fruitId) => {
     }
 
     return false
-}
-
-const scoring = (postX) => {
-    if (
-        postX < playerPosX &&
-        (postX + FRUIT_MOVING_SPEED)  > playerPosX
-    ) {
-        // got score
-        score += 1
-        console.log("score: ", score)
-
-        let scoreElmt = document.getElementById('score')
-        scoreElmt.innerHTML = score
-    }
 }
 
 function onKeyDown(e) {
